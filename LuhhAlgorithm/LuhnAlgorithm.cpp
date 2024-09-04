@@ -30,20 +30,35 @@ int main()
 
     std::vector<int> validCCN =
     {
-       4, 	5, 	5, 	6, 	7, 	3, 	7, 	5, 	8, 	6, 	8, 	9, 	9, 	8, 	5, 	16494
+       4, 	5, 	5, 	6, 	7, 	3, 	7, 	5, 	8, 	6, 	8, 	9, 	9, 	8, 	5, 	5
     };
 
-    //:: -> the "scope resolution" operator
-    std::cout << validCCN.back() << "\n";
+    //in place
     
-    //Step 1: (how to remove the last (rightmost) digit)? 
+    //:: -> the "scope resolution" operator
+    /*std::cout << */validCCN.pop_back();// << "\n";
+    //std::cout << "";
+    //Step 2: (how to remove the last (rightmost) digit)? 
+    std::cout << "After \"Step 2\" got executed: \n";
     printCCN(validCCN);
+    
+    //step 3: 
+    std::reverse(validCCN.begin(), validCCN.end()); // myReverse(validCCN)
+    std::cout << "Did std::reverse work? \n";
+    printCCN(validCCN); 
 
-    //validCCN.
+    ///steps 4 and 5: 
+    for (int i = 0; i < validCCN.size() - 1; i += 2) {
 
-    //VALID_CCN.
+        validCCN[i] *= 2; //REFACTORING 
 
+        if (validCCN[i] > 9) {
 
-    //std::cout << "Hello World!\n";
+            validCCN[i] -= 9;
+
+        }
+
+    }
+
 }
 
